@@ -1,11 +1,11 @@
 #include <stdio.h>
 /**
- * main- a function that passes the betty check.
+ * hello- a function that passes the betty check.
  *
  * Return: 0 if successful.
 */
 
-int main(void)
+int hello(void)
 {
 	printf("hello world");
 	return (0);

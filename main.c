@@ -22,6 +22,21 @@ int main(int argc, char **argv)
 
 	while (1)
 	{
+		printf("#cisfun$ ");
+		characters = getline(&b, &bufsize, stdin);
+		buffer[characters - 1] = '\0';
+		token = strtok(buffer, " ");
+		if (*token == '/')
+		{
+			strcpy(path, token);
+		}else
+		{
+			strcpy(path, "/usr/bin/");
+			strcat(path, token);
+		}
+		args[0] = path;
+		args[1] = strtok(NULL, " ");
+		args[2] = strtok(NULL, " ");
 		child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -30,21 +45,7 @@ int main(int argc, char **argv)
 		}
 		if (child_pid == 0)
 		{
-			printf("#cisfun$ ");
-			characters = getline(&b, &bufsize, stdin);
-			buffer[characters - 1] = '\0';
-			token = strtok(buffer, " ");
-			if (*token == '/')
-			{
-				strcpy(path, token);
-			}else
-			{
-				strcpy(path, "/usr/bin/");
-				strcat(path, token);
-			}
-			args[0] = path;
-			args[1] = strtok(NULL, " ");
-			args[2] = strtok(NULL, " ");
+
 			if (execve(args[0], args, NULL) == -1)
 			{
 				printf("%s: No such file or directory\n", argv[0]);

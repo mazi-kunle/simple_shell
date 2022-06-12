@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -9,10 +10,10 @@
  * main- a simple shell function.
  * @argc: argument count.
  * @argv: argument array.
- *
+ * @envp: environmental variables array.
  * Return: 0 if successful.
 */
-int main(int argc, char **argv)
+int main(int argc, char **argv, char **envp)
 {
 	char buffer[32];
 	char *b, *token;
@@ -33,6 +34,10 @@ int main(int argc, char **argv)
 		if (strcmp(token, "exit") == 0)
 		{
 			exit(0);
+		}
+		if (strcmp(token, "env") == 0)
+		{
+			printenv(envp);
 		}
 		if (*token == '/')
 		{

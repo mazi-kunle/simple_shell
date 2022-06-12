@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <stdlib.h>
 /**
  * main- a simple shell function.
  * @argc: argument count.
@@ -29,6 +30,10 @@ int main(int argc, char **argv)
 		characters = getline(&b, &bufsize, stdin);
 		buffer[characters - 1] = '\0';
 		token = strtok(buffer, " ");
+		if (strcmp(token, "exit") == 0)
+		{
+			exit(0);
+		}
 		if (*token == '/')
 		{
 			strcpy(path, token);

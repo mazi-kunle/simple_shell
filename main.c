@@ -2,6 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
 /**
  * main- a simple shell function.
@@ -15,6 +16,8 @@ int main(int argc, char **argv)
 	char buffer[32];
 	char *b, *token;
 	char path[32];
+	struct stat st;
+
 	b = buffer;
 	size_t characters, bufsize = 32;
 	pid_t child_pid;
@@ -29,10 +32,16 @@ int main(int argc, char **argv)
 		if (*token == '/')
 		{
 			strcpy(path, token);
-		}else
+		}
+		else
 		{
 			strcpy(path, "/usr/bin/");
 			strcat(path, token);
+		}
+		if (stat(path, &st) != 0)
+		{
+			printf("%s: No such file or directory\n", argv[0]);
+			continue;
 		}
 		args[0] = path;
 		args[1] = strtok(NULL, " ");

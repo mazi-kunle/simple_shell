@@ -31,8 +31,8 @@ char *path_search(char *cmd)
 		chdir(dirs[i]);
 		if (stat(cmd, &sb) == 0)
 		{
-			dirs[i] = _strncat(dirs[i], &ch, 1);
-			cmd = _strcat(dirs[i], cmd);
+			dirs[i] = strncat(dirs[i], &ch, 1);
+			cmd = strcat(dirs[i], cmd);
 			break;
 		}
 		i++;

@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <string.h>
 /**
  * _realloc - Reallocates a memory block using malloc and free.
  *
@@ -15,6 +16,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	void *mem;
 	char *ptr_copy, *filler;
 	unsigned int index;
+
 	if (new_size == old_size)
 		return (ptr);
 	if (ptr == NULL)
@@ -73,7 +75,7 @@ void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t b)
 	}
 	else
 	{
-		_strcpy(*lineptr, buffer);
+		strcpy(*lineptr, buffer);
 		free(buffer);
 	}
 
@@ -94,6 +96,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 	ssize_t ret;
 	char c = 'x', *buffer;
 	int r;
+
 	if (input == 0)
 		fflush(stream);
 	else
@@ -104,7 +107,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		return (-1);
 	while (c != '\n')
 	{
-		r = read(STDIN_FILENO, &c, 1)
+		r = read(STDIN_FILENO, &c, 1);
 			if (r == -1 || (r == 0 && input == 0))
 			{
 				free(buffer);

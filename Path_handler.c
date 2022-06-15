@@ -14,6 +14,7 @@ char *path_search(char *cmd)
 	int i;
 	char *cwd = getcwd(NULL, 0);
 	struct stat sb;
+
 	path = getenv("PATH");
 	token = strtok(path, ":");
 	if (dirs == NULL)
@@ -31,8 +32,8 @@ char *path_search(char *cmd)
 		chdir(dirs[i]);
 		if (stat(cmd, &sb) == 0)
 		{
-			dirs[i] = _strncat(dirs[i], &ch, 1);
-			cmd = _strcat(dirs[i], cmd);
+			dirs[i] = strncat(dirs[i], &ch, 1);
+			cmd = strcat(dirs[i], cmd);
 			break;
 		}
 		i++;

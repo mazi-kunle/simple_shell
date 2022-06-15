@@ -19,11 +19,12 @@ int main(int argc, char **argv, char **envp)
 	char *b, *token;
 	char path[32];
 	struct stat st;
+	size_t characters, bufsize;
+	pid_t child_pid;
+	char *args[10];
 
 	b = buffer;
-	size_t characters, bufsize = 32;
-	pid_t child_pid;
-	char *args[10] = {NULL};
+	bufsize = 32;
 
 	while (1)
 	{
@@ -56,6 +57,7 @@ int main(int argc, char **argv, char **envp)
 		args[0] = path;
 		args[1] = strtok(NULL, " ");
 		args[2] = strtok(NULL, " ");
+		args[3] = NULL;
 		child_pid = fork();
 		if (child_pid == -1)
 		{

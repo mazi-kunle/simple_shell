@@ -58,7 +58,7 @@ int main(int argc, char **argv, char **envp)
 			{
 				printf("%s: No such file or directory\n", argv[0]);
 			}
-
+			exit(0);
 		}
 		else
 		{

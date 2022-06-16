@@ -9,6 +9,7 @@
 int main(int argc, char **argv, char **envp)
 {
 	char buffer[32];
+	int status;
 	char *b, *token;
 	char path[32];
 	struct stat st;
@@ -58,7 +59,8 @@ int main(int argc, char **argv, char **envp)
 
 		}
 		else
-			wait(NULL);
+			wait(&status);
+			break;	
 	}
 	return (0);
 }

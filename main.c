@@ -64,6 +64,7 @@ int main(int argc, char **argv, char **envp)
 		{
 			wait(&status);
 			break;
+		}
 	}
 	return (0);
 }

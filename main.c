@@ -55,12 +55,15 @@ int main(int argc, char **argv, char **envp)
 		{
 
 			if (execve(args[0], args, NULL) == -1)
+			{
 				printf("%s: No such file or directory\n", argv[0]);
+			}
 
 		}
 		else
+		{
 			wait(&status);
-			break;	
+			break;
 	}
 	return (0);
 }

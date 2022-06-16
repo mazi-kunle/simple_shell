@@ -1,1 +1,1 @@
-This is the readme for the simple shell projecy
+This is the readme for the simple shell project

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "main.h"
 #include <string.h>
 /**
  * _realloc - Reallocates a memory block using malloc and free.

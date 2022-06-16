@@ -12,6 +12,8 @@
 #include <signal.h>
 #include <errno.h>
 
+extern char **environ;
+
 void printenv(char **envp);
 char *_strtok(char *str, const char *delim);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);

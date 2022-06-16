@@ -13,9 +13,12 @@ char *_strtok(char *str, const char *delim)
 {
 
 	static char *input;
-	char *ptr;
+	char ptr[100];
+	char *a;
+	char *temp;
+	int i;
 
-	input = NULL;
+	a = ptr;
 	if (str != NULL)
 	{
 		input = str;
@@ -24,7 +27,7 @@ char *_strtok(char *str, const char *delim)
 	{
 		return (NULL);
 	}
-	char temp[strlen(input) + 1];
+	temp = malloc(strlen(input) + 1);
 
 	for (i = 0; input[i] != '\0'; i++)
 	{
@@ -36,11 +39,15 @@ char *_strtok(char *str, const char *delim)
 		{
 			temp[i] = '\0';
 			input = input + i + 1;
-			return (temp);
+			strcpy(ptr, temp);
+			free(temp);
+			return (a);
 		}
 	}
 	temp[i] = '\0';
 	input = NULL;
-
-	return (result);
+	strcpy(ptr, temp);
+	free(temp);
+	return (a);
 }
+

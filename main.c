@@ -23,7 +23,7 @@ int main(int argc, char **argv, char **envp)
 		printf("#cisfun$ ");
 		characters = getline(&b, &bufsize, stdin);
 		buffer[characters - 1] = '\0';
-		token = strtok(buffer, " ");
+		token = _strtok(buffer, " ");
 		if (strcmp(token, "exit") == 0)
 			exit(0);
 		if (strcmp(token, "env") == 0)
@@ -41,8 +41,8 @@ int main(int argc, char **argv, char **envp)
 			continue;
 		}
 		args[0] = path;
-		args[1] = strtok(NULL, " ");
-		args[2] = strtok(NULL, " ");
+		args[1] = _strtok(NULL, " ");
+		args[2] = _strtok(NULL, " ");
 		args[3] = NULL;
 		child_pid = fork();
 		if (child_pid == -1)

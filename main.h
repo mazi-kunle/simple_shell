@@ -23,5 +23,8 @@ char **_copyenv(void);
 void free_env(void);
 char **_getenv(const char *var);
 char *path_search(char *cmd);
+char *read_line(void);
+char **split_line(char *str, char *path);
+void exec(char **args, char *str);
 
 #endif

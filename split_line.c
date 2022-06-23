@@ -2,12 +2,12 @@
 /**
  * split_line- this functions splits a string into an array of
  * substrings.
- * @str: string t be splitted.
- * @path: path.
+ * @str: string to be splitted.
+ *
  * Return: an array of strings.
 */
 
-char **split_line(char *str, char *path)
+char **split_line(char *str)
 {
 	int length, capacity;
 	char **tokens, *token, *delimiters;

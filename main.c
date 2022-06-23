@@ -6,16 +6,15 @@
  * @envp: environmental variables array.
  * Return: 0 if successful.
 */
-int main(int argc, char **argv, char **envp)
+int main(__attribute__((unused)) int argc, char **argv)
 {
 	char *line, **tokens;
-	char path[16];
 
 	while (1)
 	{
 		printf("#cisfun$ ");
 		line = read_line();
-		tokens = split_line(line, path);
+		tokens = split_line(line);
 
 		if (tokens[0] != NULL)
 		{

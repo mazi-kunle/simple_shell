@@ -13,5 +13,9 @@ char *read_line(void)
 	line = NULL;
 	buflen = 0;
 	getline(&line, &buflen, stdin);
+	if (feof(stdin))
+	{
+		exit(EXIT_SUCCESS);
+	}
 	return (line);
 }

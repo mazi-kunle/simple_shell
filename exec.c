@@ -23,7 +23,7 @@ void exec(char **args, char *str)
 		{
 			perror(str);
 		}
-		exit(1);
+		exit(0);
 	}
 	else
 	{

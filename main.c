@@ -3,7 +3,7 @@
  * main- a simple shell function.
  * @argc: argument count.
  * @argv: argument array.
- * @envp: environmental variables array.
+ *
  * Return: 0 if successful.
 */
 int main(__attribute__((unused)) int argc, char **argv)

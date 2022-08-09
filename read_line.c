@@ -15,6 +15,7 @@ char *read_line(void)
 	getline(&line, &buflen, stdin);
 	if (feof(stdin))
 	{
+		fflush(stdout);
 		exit(EXIT_SUCCESS);
 	}
 	return (line);

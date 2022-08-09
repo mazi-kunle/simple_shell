@@ -12,7 +12,9 @@ int main(__attribute__((unused)) int argc, char **argv)
 
 	while (1)
 	{
-		printf("#cisfun$ ");
+		if (isatty(STDIN_FILENO))
+			printf("#cisfun$ ");
+
 		line = read_line();
 		tokens = split_line(line);
 

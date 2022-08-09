@@ -10,12 +10,12 @@ char *read_line(void)
 	char *line;
 	size_t buflen;
 
-	line = NULL;
-	buflen = 0;
+	buflen = 8;
+	line = malloc(buflen * sizeof(char));
 	getline(&line, &buflen, stdin);
 	if (feof(stdin))
 	{
-		fflush(stdout);
+		free(line);
 		exit(EXIT_SUCCESS);
 	}
 	return (line);

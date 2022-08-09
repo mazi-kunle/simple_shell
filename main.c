@@ -22,8 +22,9 @@ int main(__attribute__((unused)) int argc, char **argv)
 		{
 			exec(tokens, argv[0]);
 		}
-		free(tokens);
 		free(line);
+		free(tokens);
+		line = NULL;
 	}
 	return (0);
 }
